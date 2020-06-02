@@ -1,0 +1,696 @@
+
+#wrapper{font-family: inherit;}
+.container{width:90%; 
+           margin:0 auto;
+        
+              }
+
+#abschluss h1{
+    
+    margin-left: 480px;
+    margin-top: 300px;
+}
+
+              
+#subheader{
+	
+	width:100%;
+	height:100px;
+	background:black;
+	color:white;
+	margin-top: -30px;
+	
+}
+
+
+#subheader li{
+	
+float:right;
+line-height: 30px;
+color:blue;
+text-decoration: none;
+margin-left: 30px;
+font-family: fantasy;
+color: cadetblue;
+margin-top: 40px;
+transition: all 3s ease;
+
+}
+
+#subheader span{
+    
+float:right;
+margin-left: 1px;
+margin-bottom: 22px;
+margin-top: 22px;
+position: relative;
+    
+}
+
+
+
+#subheader li a{
+	
+color:cornflowerblue;
+font-size: 30px;
+text-decoration: none;
+
+}
+
+#subheader li a:hover{
+    
+    color:coral;
+}
+
+
+#main-header{
+    
+    width:100%;
+    height:180px;
+    background: dimgray;
+    float:left;
+    margin-top: -4px;
+}
+
+
+#logo{
+    
+    margin-top: 30px;
+}
+
+#sp1{
+    
+    color:black;
+    font-size: 60px;
+    font-weight: bold;
+    margin-left: 15px;
+    font-family: serif;
+    
+}
+
+#search{
+    
+    float:right;
+    margin-right: 50px;
+   
+}
+
+.searchfeld{
+    
+    width:300px;
+    height:20px;
+    background: #fff;
+    border-radius: 10px;
+    border-style: ridge;
+    border-color: crimson;
+    padding-left: 15px;
+    
+}
+
+.searchsubmit{
+    
+    height: 40px;
+    border-radius: 10px;
+    background: cadetblue;
+    font-family: cursive;
+    font-style: oblique;
+}
+
+.searchsubmit:hover{
+    
+    cursor: pointer;
+}
+
+#login {
+    
+}
+
+.submit{
+    
+    height: 40px;
+    border-radius: 10px;
+    background: cadetblue;
+    font-family: cursive;
+    font-style: oblique;
+    margin-left: 40px;
+    
+}
+
+#register {
+    
+}
+
+
+.submit{
+    
+    height: 40px;
+    border-radius: 10px;
+    background: cadetblue;
+    font-family: cursive;
+    font-style: oblique;
+    margin-left: 120px;
+    
+}
+
+#slide{
+    
+    margin-left:500px;
+    margin-top: 200px;
+}
+
+#container{
+    
+     width:500px; 
+    height: 450px; 
+    margin:130px auto; 
+    padding-top:50px;
+    text-align: center;
+    background-color: rgba(69, 38, 38, 0.6);
+    border-radius:10px;
+    margin-top: 200px;
+}
+
+#container a{
+    
+     color:#fff;
+    font-weight: bolder;
+
+}
+
+#container a:visited {
+    color:#fff;
+}
+
+.button {
+    width:150px;
+    height: 50px;
+    font-size:18px;
+    background-color:#000;
+    color:#fff;
+    border:#fff solid 1px;
+}
+
+.button:hover {
+    background-color:#fff;
+    color:#000;
+    cursor: pointer;
+}
+
+#container input[type="text"], input[type="password"] {
+    width: 300px;
+    height: 50px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding-left:5px;
+}
+
+
+#container2 {
+    width:500px; 
+    height: 1100px; 
+    margin:130px auto; 
+    padding-top:50px;
+    text-align: center;
+    background-color: rgba(69, 38, 38, 0.6);
+    border-radius:10px;
+    margin-top: 200px;
+}
+
+#container2 a{
+    
+     color:#fff;
+    font-weight: bolder;
+
+}
+
+#container2 a:visited {
+    color:#fff;
+}
+
+#container2 input[type="text"], input[type="password"] {
+    width: 300px;
+    height: 50px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding-left:5px;
+}
+
+.payment{
+  background: gray;
+  max-width: 360px;
+  margin: 80px auto;
+  height: auto;
+  padding: 35px;
+  padding-top: 70px;
+  border-radius: 5px;
+  position: relative;
+  margin-top: 180px;
+}
+
+.payment h2{
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+  color: #0d3c61;
+}
+
+.form .label{
+  display: block;
+  color: #555555;
+  margin-bottom: 6px;
+}
+
+.input{
+  padding: 13px 0px 13px 25px;
+  width: 100%;
+  text-align: center;
+  border: 2px solid #dddddd;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  word-spacing: 3px;
+  outline: none;
+  font-size: 16px;
+  color: #555555;
+}
+
+.card-grp{
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-item{
+  width: 48%;
+}
+
+.space{
+  margin-bottom: 20px;
+}
+
+.icon-relative{
+  position: relative;
+}
+
+.icon-relative .fas,
+.icon-relative .far{
+  position: absolute;
+  bottom: 12px;
+  left: 15px;
+  font-size: 20px;
+  color: #555555;
+}
+
+.btn{
+  margin-top: 40px;
+  background: #2196F3;
+  padding: 12px;
+  text-align: center;
+  color: #f8f8f8;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.payment-logo{
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  background: #f8f8f8;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  text-align: center;
+  line-height: 85px;
+}
+
+.payment-logo:before{
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 90px;
+  height: 90px;
+  background: #2196F3;
+  border-radius: 50%;
+}
+
+.payment-logo p{
+  position: relative;
+  color: #f8f8f8;
+  font-family: 'Baloo Bhaijaan', cursive;
+  font-size: 58px;
+}
+
+
+@media screen and (max-width: 420px){
+  .card-grp{
+    flex-direction: column;
+  }
+  .card-item{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .btn{
+    margin-top: 20px;
+  }
+}
+
+#bestaetigung{
+    
+    width:100%; 
+    height: 500px; 
+    margin:130px auto; 
+    padding-top:50px;
+    text-align: center;
+    background-color: beige;
+    border-radius:10px;
+    margin-top: 160px;
+    
+}
+
+#bestaetigung h3{
+    
+    margin-right: 60px;
+}
+
+#bestaetigung table{
+    
+    margin-left: 50px;
+    margin-top:  30px;
+    border:10px solid;
+    width: 95%;
+}
+
+#bestaetigung td{
+    
+    font-size: 20px;
+    font-family: monospace;
+    padding-top: 20px;
+    border: 2px solid;
+}
+
+.bx-wrapper {
+    
+    margin-top: 150px;
+}
+
+.bx-viewport {
+    
+    background: darkslategray;
+}
+ 
+#block{
+    
+    width: 100%;
+    height:auto;
+    float:left;
+    color:cadetblue;
+    font-size: 50px;
+    font-family: sans-serif;
+    
+}
+
+#block h2{
+    
+    line-height: 35px;
+    padding-left: 450px;
+}
+
+.blockbox{
+    
+    margin-top: 70px;
+    margin-left: 100px;
+    position: relative;
+    width:900px;
+
+}
+
+.blockbox a{
+    
+    font-family: cursive;
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    font-family: sans-serif;
+    
+}
+
+
+.blockbox a:hover{
+    
+    color:darkorange;
+}
+
+.blockbox span{
+    
+    
+    position: absolute;
+    margin-left: 50px;
+    margin-bottom: 100px;
+    
+}
+
+.blockbox h2{
+    
+    font-size: 30px;
+    font-family: cursive;
+    color: cadetblue;
+    padding-top: 180px;
+    
+}
+
+#preis{
+    
+    font-size: 25px;
+    font-family: fantasy;
+    color: cadetblue;
+    height: 280px;
+}
+
+.blockbox table{
+    
+    margin-top:  30px;
+    width: 40%;
+    
+}
+
+.blockbox tr{
+    
+    border-bottom: 2px solid;
+}
+
+.blockbox td{
+    
+    font-size: 20px;
+    font-family: sans-serif;
+    padding-top: 20px;
+   padding-left: 20px;
+    border-bottom: 1px solid;
+    border-bottom-color: darkgray;
+}
+
+#footer{
+    
+    width: 100%;
+    height: 140px;
+    background: darkslategray;
+    margin-top: 40px;
+}
+
+#footer p{
+    
+    margin-left: 500px;
+    font-size: 20px;
+    position: absolute;
+    padding-top: 50px;
+}
+
+
+#footer img{
+    
+    height: 80px;
+    width: 80px;
+    margin-left: 300px;
+    padding-top: 40px;
+    position: absolute;
+}
+
+#num{
+    
+    margin-top: 30px;
+    position: absolute;
+    margin-right: 40px;
+}
+
+
+
+section #shoppingCart{
+    margin:auto;
+    padding:0px;
+    width:750px;
+    height: 500px;
+    background-color: #A5A19B;
+    border-color: #FEF1CD;
+    border-style:solid;
+    border-width:3px;
+    border-radius: 10px;
+}
+section #shoppingCart #books{
+    background-color: #E7E3DD;
+    margin-left: 25px;
+    margin-top:25px;
+    padding:10px;
+    height:350px;
+    width: 500px;
+    float:left;
+    overflow-y:scroll;
+}
+
+section #shoppingCart #books .product{
+    margin:10px;
+    padding:10px;
+    background-color: #F9F6F2;
+    border-radius:10px;
+    height:100px;
+}
+
+section #shoppingCart #books .product .removalButton{
+    font-size: 8px;
+    text-align: center;
+    float:right;
+    color:red;
+}
+
+section #shoppingCart #books .product .imageBox{
+    background-color:#E7E3DD;
+    float:left;
+    height:90px;
+    width:60px;
+    margin:0 auto;
+}
+section #shoppingCart #books .product .imageBox img{
+    margin:5px;
+    height:90%;
+    line-height: 350px;
+}
+section #shoppingCart #books .product .bookData{
+    display:table;
+    float:right;  
+}
+section #shoppingCart #books .product .bookData .row{
+    display:table-row;
+    margin-right:10px;
+    padding: 2px;
+}
+section #shoppingCart #books .product .bookData .row .cell{
+    color:black;
+    font-size: 10px;
+    display:table-cell;
+    margin:4px;
+    padding: 2px;
+}
+
+section #shoppingCart #books .product .incDec{
+    margin-left:15px;
+    float:left;
+    background-color:#E7E3DD;
+}
+
+section #shoppingCart #total{
+    background-color: #ADA9A3;
+    border-color: #ADA9A3;
+    border-width:5px;
+    border-radius:5px;
+    margin-left: 10px;
+    margin-right:25px;
+    margin-top:25px;
+    height:370px;
+    width: 150px;
+    float:right;
+}
+
+section #shoppingCart .buttonLink{
+    color: #FEF1CD;
+    text-decoration: none;
+    display:table-cell;
+    padding:0px;
+}
+
+section #shoppingCart .buttonLink div{
+    background-color: #ADA9A3;
+    border-radius:5px;
+    padding:15px;
+    margin:10px;
+    margin-top:20px;
+}
+section #shoppingCart .buttonLink div:hover{
+    background-color: #92908B;
+    padding:15px;
+}
+
+section #shoppingCart #returnToShop{
+    float:left;
+    margin-left:15px;
+}
+
+section #shoppingCart #confirmation{
+    float:right;
+    margin-right:15px;
+}
+
+#totalAmount{
+    margin:auto;
+    color: black;
+    background-color: cadetblue;
+    text-align: center;
+}
+
+
+
+#num{
+    
+    font-size: 40px;
+   padding-bottom: 70px;
+   line-height: 0px;
+    
+}
+
+#description p{
+    
+    margin-top: -150px;
+    
+}
+
+.del{
+    
+    position: absolute;
+    margin-bottom: -50px;
+    margin-left: 80px;
+    
+}
+
+#totalcount{
+    
+    margin-top: 30px;
+    padding-right: 20px;
+    font-size: 30px;
+    font-family: fantasy;
+    color: darkorange;
+    
+}
+
+#line{
+    
+    margin-top: 80px;
+}
+
+#total{
+    
+    font-size: 30px;
+    font-family: fantasy;
+    color: cadetblue;
+    margin-left:900px;
+    
+}
+

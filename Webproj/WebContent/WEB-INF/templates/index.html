@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<title th:text="${pageTitle}">First Template Attempt</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<script src="js/cart.js"></script>
+    
+     <script>
+    $(document).ready(function(){
+      $('.slider').bxSlider({
+          
+       speed:2000,
+       auto: true,
+       controls: false
+          
+      });
+    });
+        
+  </script>
+    
+    <script>
+    
+        window.onload = function(){
+ 
+            document.getElementById("totalcount").innerHTML = getallItemsCount();
+            <!----getMessage();---->
+            
+              };
+    
+    </script>
+    
+
+</head>
+
+<body>
+    <div id="pageContainer">
+	    <header id="headerWrapper">
+			<div id="subheader">
+				<div class="container">
+		<span style="font-weight: bold; margin-top:50px; font-size:30px; color:cornflowerblue;" th:text="${username}"></span>
+		<span style="font-weight: bold; padding-right: 20px; font-size: 50px; margin-top:50px; font-size:30px; color:darkorange;" th:text="${count}"></span>
+				    <span>
+				    	<a href="warenkorb">
+				    		<img src= imgs/cart.png style="height: 60px; width: 80px;">
+				    	</a>
+				    </span>
+				    <li><a href="index.jsp" onclick="clearCart();">logout</a></li>
+				    <li><a href="CategoryBookList">Home</a></li>
+				</div>
+		  	</div>
+		  	
+		    <!--main Header-->
+		    <div id="main-header">
+		         
+			    <div id="logo">
+			    	<span id="sp1">MeinBuchGeschaeft.de</span> 
+			    </div>
+		    	<span style=" margin-left:100px; color:#FACC2E; font-size:30px; width:20px;">Kategorien :</span>
+		     
+		       
+			    <select onchange="getValue(this.value)" style=" margin-left:10px; pxpadding-bottom:10px; margin-bottom:5px; width:200px; border-radius:10px;" id="Beruf" name="Beruf" class="input-xlarge">  
+				    <option disabled selected>Kategorie auswaehlen</option>
+				    <th:block th:each="categoryListOption : ${categoryList}">
+				    	<option th:value = "@{CategoryBookList(requestedCategoryID=${categoryListOption.cat_id})}" th:text="${categoryListOption.Name}">[ph]OptionText</option>
+				    </th:block>
+			    </select>
+			    <script>		          
+				    function getValue(selectObject) {
+				    	window.location = selectObject;
+				    }      
+			    </script>
+		         
+			    <!--Suchen-->
+			    <div id = "search">
+				    <form action="">
+					    <input class="searchfeld" type = "text" name="text" placeholder="Hier ihre Suche bitte Eingeben... ">
+					    <input class="searchsubmit" type = "submit" name="submit" value="Suchen">
+					</form>
+			    </div>
+			</div>
+		    
+		    <!---Home Slide--->
+		    <div class="slide">
+				    <ul class="slider">
+					    <li><img src= slideimgs/1.jpg style="position: relative; margin-left: 230px; margin-top: 10px; height: 430px;  width: 900px;"></li>
+					    <li><img src= slideimgs/2.jpg style="position: relative; margin-left: 230px; margin-top: 10px; height: 430px;  width: 900px;"></li>
+					    <li><img src= slideimgs/3.jpg style="position: relative; margin-left: 230px; margin-top: 10px; height: 430px;  width: 900px;"></li>
+				    </ul>
+			    </div>
+		    
+	    </header>
+	    <section id="contentWrapper">
+		    
+		    <!---Items--->
+		   	<div id="block">
+		    	<h1 th:text="${categoryName}">[ph]Kategorie</h1>
+		    </div>
+		        
+		    <th:block th:each="bookInstance : ${bookList}">
+		    	<hr>
+				<div class="blockbox">
+					<a th:href="@{BookDetail(requestedBookID=${bookInstance.book_id})}">
+						<img th:src= "@{${bookInstance.bildpfad}}" style="height:300px;">
+					</a>
+					<span id="bookTitle">
+						<a th:href="@{BookDetail(requestedBookID=${bookInstance.book_id})}" th:text="${bookInstance.titel}"></a>
+						<p>Von <span th:object="${authorMap.get(bookInstance.autor_id)}" th:text="${#object.getAutor_name()}">Nele Neuhaus</span></p>
+						<div id ="preis">
+							<p>Preis: <span th:text="${#numbers.formatDecimal(bookInstance.preis,0,2)}">[ph]48</span> $</p>
+						</div>
+					</span>
+				</div>
+		    </th:block>
+	    </section>  
+	  
+	    <footer id="footerWrapper">
+			    <img src= imgs/logo.png>
+			    <p>Copyright © 2020 meinbuchgeschaeft.de, Inc.</p>   
+	    </footer>
+    </div>
+</body>
+</html>

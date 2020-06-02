@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<title>Online Buecher</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-migrate-3.1.0.min.js"
+  integrity="sha256-ycJeXbll9m7dHKeaPbXBkZH8BuP99SmPm/8q5O+SbBc="
+  crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="js/cart.js"></script>
+     <script type="text/javascript">
+    $(document).ready(function(){
+      $('.slider').bxSlider({
+          
+       speed:2000,
+       auto: true,
+       controls: false
+          
+      });
+    });
+        
+  </script>
+    
+    
+    <style>
+    
+.btn2 button {
+        
+    width:250px;
+    height: 50px;
+    font-size:18px;
+    background-color:#000;
+    color:#fff;
+    border:#fff solid 1px;
+    margin-top: 50px;
+    margin-left: 550px;
+}
+
+.btn2 button:hover {
+    
+    background-color:skyblue;
+    color:#000;
+    cursor: pointer;
+}
+        
+#footer{
+    
+    width: 100%;
+    height: 140px;
+    background: darkslategray;
+    margin-top: 200px;
+}
+        
+        #preissum{
+            
+            margin-top: 20px;
+            
+        }
+
+    
+    </style>
+
+</head>
+
+<body>
+    
+    <header>
+
+<div id="wrapper">
+ <div id="header">
+  <div id="subheader">
+   <div class="container">
+       
+     <span style="font-weight: bold; margin-top:50px; font-size:30px; color:cornflowerblue;" th:text="${username}"></span>
+     <span style="font-weight: bold; padding-right: 20px; font-size: 30px; margin-top:50px; color:darkorange;" th:text="${count}"></span>
+       <span><a href="warenkorb"><img src= imgs/cart.png style="height: 60px; width: 80px;"></a></span>
+       <li><a href="index.jsp">logout</a></li>
+       <li><a href="CategoryBookList">Home</a></li>
+       
+   </div>
+  </div>
+     
+ </div>
+</div>
+        
+     <!--main Header-->
+    <div id="main-header">
+         
+         <div id="logo">
+         
+             <span id="sp1">MeinBuchGeschaeft.de</span> 
+         
+         </div>
+         
+         <!--Suchen-->
+         <div id = "search">
+         <form action="">
+         
+             <input class="searchfeld" type = "text" name="text" placeholder="Hier ihre Suche bitte Eingeben... ">
+             <input class="searchsubmit" type = "submit" name="submit" value="Suchen">
+         
+         </form>
+     
+        </div>
+     </div>
+    
+    <!---Home Slide--->
+    
+    
+ <div class="slide">
+    
+        <ul class="slider">
+        <li><img src= slideimgs/1.jpg style="position: relative; margin-left: 230px; margin-top: 10px; height: 430px;  width: 900px;"></li>
+        <li><img src= slideimgs/2.jpg style="position: relative; margin-left: 230px; margin-top: 10px; height: 430px;  width: 900px;"></li>
+        <li><img src= slideimgs/3.jpg style="position: relative; margin-left: 230px; margin-top: 10px; height: 430px;  width: 900px;"></li>
+        </ul>
+    
+    </div>
+        </header>
+    
+     <th:block th:each="warenkorbInstance : ${warenkorb}">
+    
+    <div class="blockbox">
+    <form action="warenkorb" method="get">
+    <img th:src="${warenkorbInstance.imagepath}" style="height:250px; width:200px;">
+    <span style="font-size:30px;" th:text="${warenkorbInstance.title}"></span>
+    <span style="font-weight: bold; font-size:30px; color:cadetblue; margin-top:90px;">Preis:$</span>
+    <span  style="font-weight: bold; font-size:30px; color:cadetblue; margin-top:115px;" th:text="${warenkorbInstance.totalpreis}"></span>
+    <span style="font-weight: bold; font-size:30px; color:cadetblue; margin-top:140px;">Anzahl</span>
+    <span style="font-weight: bold; font-size:30px; color:cadetblue; margin-top:165px;" th:text="${warenkorbInstance.count}"></span>
+    <input type="hidden" name="bookid" th:value="${warenkorbInstance.bookid}">
+    <button type="submit" name="submit" class="button" value="add" style="height:0px; width: 0px; background-color:white;"><img src=imgs/plus.png style="height: 50px;width: 50px;"></button>
+    <button type="submit" name="submit" class="button" value="sub" style="margin-left: 50px; height: 0px; width:0px; background-color: white;"><img src=imgs/minus.png style="height: 45px;width: 45px;"></button>
+    <button type="submit" name="submit" class="button" value="del" style=" margin-left: 50px; height: 0px; width: 0px; background-color: white;"><img src=imgs/del.png style="height: 70px;width: 55px; "></button>
+    </form>
+    
+    <div id="line"><hr></div>
+    
+    </div>
+    
+    </th:block>
+    
+    <div id="total" th:text="${total}"></div>
+    
+        <div class ="btn2">
+        
+            <form action="bezahlen_optionen.jsp">
+            
+            <button type="submit" class="button">Zur Kasse</button>
+            
+            </form>
+                
+                <form action="CategoryBookList" method="get">
+             <button type="submit" name="submit" value="del" class="button">Warenkorb Loeschen</button>
+                </form>
+        </div>
+        
+        <div id="footer">
+            <footer>
+            
+            <img src= imgs/logo.png>
+             <p>Copyright Â© 2020 meinbuchgeschaeft.de, Inc.</p>
+                </footer>
+           
+        </div>
+
+</body>
+</html>

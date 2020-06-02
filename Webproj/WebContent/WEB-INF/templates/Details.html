@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+	<meta charset="UTF-8">
+	<title th:text=${pageTitle}>[ph]Bookname</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+	<script src="js/cart.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.slider').bxSlider({
+				speed:2000,
+				auto: true,
+				controls: false
+			});
+		});
+	</script>
+	    
+	<script>
+		window.onload = function(){
+			document.getElementById("totalcount").innerHTML = getallItemsCount();
+		};
+	</script>
+	    
+	    
+	<style>
+		.button:hover {
+			background-color:skyblue;
+			color:#000;
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="pageContainer">
+		<header id="headerWrapper">
+			<div id="subheader">
+				<div class="container">
+				      
+	    <span style="font-weight: bold; margin-top:50px; font-size:30px; color:cornflowerblue;" th:text="${username}"></span>
+	    <span style="font-weight: bold; padding-right: 20px; font-size: 50px; margin-top:50px; font-size:30px; color:darkorange;" th:text="${count}"></span>
+					<span>
+						<a href="warenkorb">
+							<img src= imgs/cart.png style="height: 60px; width: 80px;">
+						</a>
+					</span>
+					<li><a href="index.jsp" onclick="clearCart();">logout</a></li>
+					<li><a href="CategoryBookList">Home</a></li>
+				       
+				</div>
+			</div>
+			        
+			<!--main Header-->
+			<div id="main-header">
+				<div id="logo">   
+					<span id="sp1">MeinBuchGeschaeft.de</span> 
+				</div>
+				         
+				<span style=" margin-left:100px; color:#FACC2E; font-size:30px; width:20px;">Kategorien :</span>
+				     
+				<select onchange="getValue(this.value)" style=" margin-left:10px; pxpadding-bottom:10px; margin-bottom:5px; width:200px; border-radius:10px;" id="Beruf" name="Beruf" class="input-xlarge">  
+				    <option disabled selected>Kategorie auswaehlen</option>
+				    <th:block th:each="categoryListOption : ${categoryList}">
+				    	<option th:value = "@{CategoryBookList(requestedCategoryID=${categoryListOption.cat_id})}" th:text="${categoryListOption.Name}">[ph]OptionText</option>
+				    </th:block>
+			    </select>
+				          
+				<script>
+					function getValue(selectObject) {
+						window.location = selectObject;
+					}
+				</script>
+				         
+				<!--Suchen-->
+				<div id = "search">
+					<form action="">
+						<input class="searchfeld" type = "text" name="text" placeholder="Hier ihre Suche bitte Eingeben... ">
+						<input class="searchsubmit" type = "submit" name="submit" value="Suchen">
+					</form>
+				</div>
+			</div>
+			    
+			<!---Home Slide--->
+			<!-- -div class="slide">
+				<ul class="slider">
+					<li><img src= slideimgs/1.jpg style="position: relative; margin-left: 230px; margin-top: 10px; height: 430px;  width: 900px;"></li>
+					<li><img src= slideimgs/2.jpg style="position: relative; margin-left: 230px; margin-top: 10px; height: 430px;  width: 900px;"></li>
+					<li><img src= slideimgs/3.jpg style="position: relative; margin-left: 230px; margin-top: 10px; height: 430px;  width: 900px;"></li>
+				</ul>
+			</div>---->
+		</header>
+		
+		<section id="contentWrapper">
+			<div class="blockbox">
+				<a href="BookDetail"th:href="@{BookDetail(requestedBookID=${bookID})}" >
+					<img src= imgs/geschichte/6.jpg th:src="@{${bookImgPth}}" style="height:300px;">
+				</a>
+				<span id="bookTitle">
+					<a href="BookDetail" th:href="@{BookDetail(requestedBookID=${bookID})}" th:text=${bookTitle}></a>
+					<p>
+						Von <span th:text=${authorName}></span>
+					</p>
+					<div id ="preis">
+						<p>
+							Preis: <span th:text="${#numbers.formatDecimal(bookPrice,0,2)}"></span> $
+						</p>
+						
+						<form action = "warenkorb" method="get">
+						
+							<input type="hidden" name = "addedBookID" id="addedBookID" th:value="${bookID}">
+							<input type="hidden" name = "booktitle" id="booktitle" th:value="${bookTitle}">
+							<input type="hidden" name = "bookpreis" id="bookpreis" th:value="${bookPrice}">
+							<input type="hidden" name = "bookimg" id="bookimg" th:value="${bookImgPth}">
+							<button type="submit" name="submit" id="add" class="button" value="details" style="margin-bottom:50px;width:300px;">In den Einkaufswagen</button>  
+							         
+						</form>
+						
+					</div>
+					                  
+					<span id="description">
+						<p th:text="${bookDescription}">
+							"Turning the envelope over, his hand trembling, Harry saw a purple wax seal bearing a coat of arms; a lion, an eagle, a badger and a snake surrounding a large letter 'H'."
+							<br><br>
+							Harry Potter has never even heard of Hogwarts when the letters start dropping on the doormat at number four, Privet Drive. Addressed in green ink on yellowish parchment with a purple seal, they are swiftly confiscated by his grisly aunt and uncle. Then, on Harry's eleventh birthday, a great beetle-eyed giant of a man called Rubeus Hagrid bursts in with some astonishing news: Harry Potter is a wizard, and he has a place at Hogwarts School of Witchcraft and Wizardry. An incredible adventure is about to begin! <br><br>
+						</p>
+					</span>
+				</span>
+				          
+				<h2>Produktinformation</h2>
+				<hr>
+				
+				<table>
+					<tr>
+						<td style="background:cadetblue;">Autor</td>
+						<td th:text="${authorName}">[ph]Author</td>
+					</tr> 
+					               
+					<tr>
+						<td style="background:cadetblue;">Verlag</td>
+						<td th:text=${verlagName}>[ph]Publisher</td>
+					</tr> 
+					              
+					<tr>         
+						<td style="background:cadetblue;">Sprache</td>
+						<td th:text=${bookLang}>[ph]Language</td>
+					</tr>
+					              
+					<tr>
+						<td style="background:cadetblue;">ISBN</td>
+						<td th:text=${bookISBN}>[ph]ISBN</td>
+					</tr>
+				</table>
+				
+				<table>
+					<tr>
+						<td style="background:cadetblue;">Kategorien</td>
+					</tr>
+					<th:block th:each="bookCategory : ${bookCategories}">
+						<tr>
+							<td>
+								<a th:text="${bookCategory.Name}" th:href="@{CategoryBookList(requestedCategoryID=${bookCategory.cat_id})}">[ph]Kategorie</a>
+							</td>
+						</tr>
+					</th:block>
+				</table>
+			</div>
+		</section>
+		
+		<footer id="footerWrapper">
+			<img src= imgs/logo.png>
+			<p>Copyright © 2020 meinbuchgeschaeft.de, Inc.</p>
+		</footer>
+	</div>
+</body>
+</html>
